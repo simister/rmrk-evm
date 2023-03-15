@@ -12,7 +12,7 @@ contract Album is RMRKNestableMultiAsset, Ownable {
     uint256 public totalSupply;
     uint256 public maxSupply;
     uint64 public numberOfAssets;
-    
+
     constructor(
         string memory name_,
         string memory symbol_,
@@ -21,10 +21,10 @@ contract Album is RMRKNestableMultiAsset, Ownable {
         maxSupply = maxSupply_;
     }
 
-    function mint (address to, uint256 amount) public onlyOwner {
-        if ( amount == 0 ) revert ZeroAmount();
-        if ( to == address(0) ) revert ZeroAddress();
-        if ( totalSupply + amount > maxSupply ) revert MintOverMaxSupply();
+    function mint(address to, uint256 amount) public onlyOwner {
+        if (amount == 0) revert ZeroAmount();
+        if (to == address(0)) revert ZeroAddress();
+        if (totalSupply + amount > maxSupply) revert MintOverMaxSupply();
 
         uint256 nextTokenId = totalSupply + 1;
         unchecked {
@@ -45,7 +45,6 @@ contract Album is RMRKNestableMultiAsset, Ownable {
             numberOfAssets++;
         }
         _addAssetEntry(numberOfAssets, metadataURI);
-
     }
 
     function addAssetToTokens(
@@ -55,7 +54,7 @@ contract Album is RMRKNestableMultiAsset, Ownable {
         for (uint256 i = 0; i < tokenIds.length; ) {
             _addAssetToToken(tokenIds[i], assetId, 0);
 
-            if ( ownerOf(tokenIds[i]) == msg.sender ) {
+            if (ownerOf(tokenIds[i]) == msg.sender) {
                 uint256 assetIndex = getPendingAssets(tokenIds[i]).length - 1;
                 acceptAsset(tokenIds[i], assetIndex, assetId);
             }

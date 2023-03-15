@@ -23,9 +23,9 @@ contract Song is RMRKNestableMultiAsset, RMRKSoulbound, Ownable {
         uint256 destinationId,
         uint256 amount
     ) public onlyOwner {
-        if ( to == address(0) ) revert DestinationZeroAddress();
-        if ( destinationId == 0 ) revert DestinationIdZero();
-        if ( amount == 0 ) revert AmountZero();
+        if (to == address(0)) revert DestinationZeroAddress();
+        if (destinationId == 0) revert DestinationIdZero();
+        if (amount == 0) revert AmountZero();
 
         uint256 nextTokenId = totalSupply + 1;
         unchecked {
@@ -55,9 +55,10 @@ contract Song is RMRKNestableMultiAsset, RMRKSoulbound, Ownable {
         for (uint256 i = 0; i < tokenIds.length; ) {
             for (uint256 j = 0; j < assetIds.length; ) {
                 _addAssetToToken(tokenIds[i], assetIds[j], 0);
-                
-                if ( ownerOf(tokenIds[i]) == msg.sender ) {
-                    uint256 assetIndex = getPendingAssets(tokenIds[i]).length - 1;
+
+                if (ownerOf(tokenIds[i]) == msg.sender) {
+                    uint256 assetIndex = getPendingAssets(tokenIds[i]).length -
+                        1;
                     acceptAsset(tokenIds[i], assetIndex, assetIds[j]);
                 }
 
@@ -85,7 +86,7 @@ contract Song is RMRKNestableMultiAsset, RMRKSoulbound, Ownable {
     )
         public
         view
-        override (RMRKSoulbound, RMRKNestableMultiAsset)
+        override(RMRKSoulbound, RMRKNestableMultiAsset)
         returns (bool)
     {
         return
