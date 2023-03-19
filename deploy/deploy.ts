@@ -12,7 +12,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const deployer = new Deployer(hre, wallet);
 
   const albumArtifact = await deployer.loadArtifact('Album');
-  const albumArgs = ['Album', 'ALB', 10_000];
+  const albumArgs = ['Album', 'ALB', 10000];
   const albumDeploymentFee = await deployer.estimateDeployFee(albumArtifact, albumArgs);
 
   const albumDepositHandle = await deployer.zkWallet.deposit({

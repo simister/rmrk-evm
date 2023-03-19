@@ -13,7 +13,7 @@ async function main() {
   const Album = await ethers.getContractFactory('Album');
   const Song = await ethers.getContractFactory('Song');
 
-  const album = await Album.deploy('Album', 'ALB', 10_000);
+  const album = await Album.deploy('Album', 'ALB', 10000);
   await album.deployed();
 
   const song = await Song.deploy('Song', 'SNG');
