@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.18;
 
-import "@rmrk-team/evm-contracts/contracts/RMRK/nestable/RMRKNestableMultiAsset.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import { RMRKNestableMultiAsset } from "@rmrk-team/evm-contracts/contracts/RMRK/nestable/RMRKNestableMultiAsset.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 error MintOverMaxSupply();
 error ZeroAddress();

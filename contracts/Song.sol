@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.18;
 
-import "@rmrk-team/evm-contracts/contracts/RMRK/nestable/RMRKNestableMultiAsset.sol";
-import "@rmrk-team/evm-contracts/contracts/RMRK/extension/soulbound/RMRKSoulbound.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import { RMRKNestableMultiAsset } from "@rmrk-team/evm-contracts/contracts/RMRK/nestable/RMRKNestableMultiAsset.sol";
+import { RMRKSoulbound } from "@rmrk-team/evm-contracts/contracts/RMRK/extension/soulbound/RMRKSoulbound.sol";
+import { RMRKCore } from "@rmrk-team/evm-contracts/contracts/RMRK/core/RMRKCore.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 error DestinationZeroAddress();
 error DestinationIdZero();
